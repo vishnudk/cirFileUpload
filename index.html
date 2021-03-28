@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SSR SUBMITION PORTAL</title>
+    <!-- https://drive.google.com/file/d/1fvyJlJMIklKvw4vmtpWyoehmuD3GPXdp/view?usp=sharing -->
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://drive.google.com/uc?export=view&id=1fvyJlJMIklKvw4vmtpWyoehmuD3GPXdp">
+    <base target="_top">
+    <style>
+        h4 {
+            /* color: white; */
+            color: black;
+        }
+
+        input {
+            color: black;
+
+            /* color: white; */
+        }
+
+        .dropbtn {
+            border-radius: 50px;
+            background-color: hsl(209, 77%, 76%);
+            color: black;
+
+            padding: 5px;
+            font-size: 14px;
+            border: none;
+        }
+
+        body {
+            background-image: linear-gradient(to right, rgb(125, 68, 156), rgba(0, 0, 255, 0.747));
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .errorMSG {
+            color: red;
+            font-family: Courier New;
+        }
+
+        .navBtn {
+            background-color: hsl(209, 77%, 76%);
+            border-radius: 50px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: rgb(255, 255, 255);
+            color: black;
+        }
+
+        input[type=text] {
+            border: none;
+            border-bottom: 2px solid rgb(0, 174, 255);
+            width: 100%;
+        }
+
+        .submitBtn {
+            border-radius: 50px;
+            background-color: hsl(209, 77%, 76%);
+            color: black;
+            padding: 10px;
+            /* padding-right: 10px;
+            padding-left: 10px; */
+            width: 100%;
+
+            font-size: 14px;
+            border: none;
+        }
+
+        .submitBtn:hover {
+            background-color: rgb(255, 255, 255);
+            color: black;
+        }
+
+        /* .mainBox:hover {
+            transform: rotateY(180deg);
+        } */
+
+        .mainBox {
+
+            /* width: 300px;
+  padding: 50px; */
+            margin: auto;
+            margin-top: 5%;
+            width: 22%;
+            border-radius: 24px;
+            /* background: #1f1e1e; */
+            background-color: rgb(255, 255, 255);
+            /* box-shadow: 20px 20px 60px #72abd9,
+                -20px -20px 60px #9ae7ff; */
+            padding: 30px 86px;
+            padding-top: 36px;
+            /* position: relative; */
+            /* position: center; */
+            /* left: 270px; *
+  /* left: 30%; */
+            /* left: 501px;
+  top: 150px; */
+
+        }
+    </style>
+</head>
+<script>
+    $(".dets>div:nth-child(even)").css('background-color', 'black');
+
+    function setAlert(e) {
+        if (document.getElementById("gno").value != "" && document.getElementById("mySelect").value != "zilch") {
+            alert(google.script.run.upload(e))
+            // if ( google.script.run.upload(e) == true)
+            //   alert("uploaded the file !!")
+            // else //if(flag === false)
+            //   alert("file not uploaded !!" )
+        }
+        else {
+            // alert("enter the group number!!")
+            if (document.getElementById("mySelect").value == "zilch")
+                document.getElementById("errMsg1").innerHTML = "*Select Mentor"
+            else {
+                document.getElementById("errMsg1").innerHTML = ""
+            }
+            if (document.getElementById("gno").value == "")
+                document.getElementById("errMsg").innerHTML = "*Enter group number"
+            else {
+                document.getElementById("errMsg").innerHTML = ""
+
+            }
+        }
+
+    }
+    function msgAlert() {
+        alert("this msg is to give you some info about how to submit your file in this portal")
+    }
+</script>
+
+<body onload="msgAlert()">
+    <!-- <link rel="icon" href="https://drive.google.com/uc?export=view&id=1if0CDmkofJOKxL2gbj2NPeOjEDaKSYa3"> -->
+
+    <div class="mainBox">
+
+        <div class="front-card">
+            <img src="https://drive.google.com/uc?export=view&id=1gsVdYHryaoKsdHTClV-Pf2YaCSD-733l"
+                style="width: 100%; padding-bottom: 10px;">
+
+            <form>
+
+                <div class="dropdown">
+                    <label>Select your mentor</label>
+                    <select class="dropbtn" name="demoSelect" id="mySelect">
+                        <option value="zilch">Select :</option>
+                        <option value="A">Kiran Sir</option>
+                        <option value="B">Darsana Ma'am</option>
+                        <option value="C">Balachandar Sir</option>
+                    </select>
+                </div>
+                <br>
+                <label class="errorMSG" id="errMsg1"></label>
+                <br>
+                <!-- <h4>Enter your group number</h4> -->
+                <br>
+                <input type="text" id="gno" name="gno" placeholder="Enter your group number">
+                <br>
+                <label class="errorMSG" id="errMsg"></label>
+                <br>
+                <br>
+
+                <label>Video - Less than 3 min</label>
+                <br>
+
+                <input type="file" name="upload1">
+                <br>
+                <br>
+
+                <label>Press Report,Social Media/Newspaper cutting</label>
+                <br>
+
+                <input type="file" name="upload2">
+                <br>
+                <br>
+
+                <label>Presentation (PPT format)</label>
+                <br>
+
+                <input type="file" name="upload3">
+                <br>
+                <br>
+
+                <label>Project Report in Microsoft Word</label>
+                <br>
+
+                <input type="file" name="upload4">
+
+                <br>
+                <br>
+                <label>A3 Size Poster </label>
+                <br>
+
+                <input type="file" name="upload5">
+                <br>
+                <br>
+                <label>File containing Surveys ,Images etc</label>
+                <br>
+
+                <input type="file" name="upload6">
+                <br>
+                <br>
+                <label>Blog (Only in MS word format)</label>
+                <br>
+
+                <input type="file" name="upload7">
+                <br>
+                <br>
+
+
+                <input class="submitBtn" type="button" value="upload" onclick="setAlert(this.parentNode)">
+            </form>
+            <!-- <div>
+            <?var url = getScriptUrl();?><a href='<?=url?>?page=homePage'> <input class="navBtn"
+                    type='button' name='button' value='Continue'></a>
+        </
+        div> -->
+        </div>
+    </div>
+</body>
+
+
+</html>
